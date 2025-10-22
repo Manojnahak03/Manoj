@@ -1,0 +1,20 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #0f172a; /* dark galaxy theme */
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+section, div {
+  max-width: 100%;
+}
+

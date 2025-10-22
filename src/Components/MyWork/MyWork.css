@@ -1,0 +1,124 @@
+.mywork {
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px 10%;
+  background: transparent;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== TITLE ===== */
+.mywork-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.mywork-title h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 0 25px rgba(56,189,248,0.6);
+}
+
+.mywork-title img {
+  width: 70px;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ===== WORK GRID ===== */
+.mywork-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.mywork-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  border: 2px solid rgba(56,189,248,0.3);
+  object-fit: cover;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 25px rgba(56,189,248,0.15);
+  cursor: pointer;
+  position: relative;
+}
+
+.mywork-container img:hover {
+  transform: scale(1.05);
+  border-color: rgba(56,189,248,0.6);
+  box-shadow: 0 0 40px rgba(56,189,248,0.3);
+  filter: brightness(1.15);
+}
+
+/* ===== SHOW MORE BUTTON ===== */
+.mywork-showmore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px auto 0;
+  padding: 12px 25px;
+  border: 2px solid #38bdf8;
+  border-radius: 10px;
+  color: #38bdf8;
+  font-weight: 600;
+  font-size: 1rem;
+  background: rgba(56,189,248,0.05);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.mywork-showmore img {
+  width: 25px;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.mywork-showmore:hover {
+  background: linear-gradient(90deg, rgba(56,189,248,0.2), rgba(59,130,246,0.2));
+  box-shadow: 0 0 30px rgba(56,189,248,0.5);
+  transform: translateY(-3px);
+}
+
+.mywork-showmore:hover img {
+  transform: translateX(5px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .mywork {
+    padding: 80px 7%;
+  }
+
+  .mywork-title h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mywork {
+    padding: 70px 6%;
+  }
+
+  .mywork-container {
+    gap: 20px;
+  }
+
+  .mywork-showmore {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
