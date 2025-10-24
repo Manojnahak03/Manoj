@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import footer_logo from '../../assets/footer_logo.svg';
+import logo from '../../assets/logo.jpg';
 import user_icon from '../../assets/user_icon.svg';
 import { FaInstagram, FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
 
@@ -9,7 +9,7 @@ const Footer = () => {
     <div className='footer'>
       <div className="footer-top">
         <div className="footer-top-left">
-          <img src={footer_logo} alt="Logo" />
+          <img src={logo} alt="Logo" />
           <p>
             I am a frontend developer from Mumbai, India with 2 years of experience 
             in building clean and creative web applications.

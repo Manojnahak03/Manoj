@@ -1,17 +1,19 @@
 import React from 'react';
 import './About.css';
+import theme_pattern from '../../assets/theme_pattern.svg'
+import Profile_img from '../../assets/Profile_img.jpg'
 
 const About = () => {
   return (
     <div id='about' className="about">
       <div className="about-title">
         <h1>About Me</h1>
-        <img src="/assets/theme_pattern.svg" alt="Theme Pattern" />
+        <img src={theme_pattern} alt="Theme Pattern" />
       </div>
 
       <div className="about-section">
         <div className="about-left">
-          <img src="/assets/about_profile.svg" alt="Profile" />
+          <img src={Profile_img} alt="Profile" />
         </div>
 
         <div className="about-right">

@@ -1,39 +1,40 @@
 import React, { useState } from 'react';
 import './Navbar.css';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo.jpg';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { FaBars, FaTimes } from 'react-icons/fa'; // for hamburger & close icons
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeMenu = () => {
-    setIsOpen(false);
+    setMenuOpen(!menuOpen);
   };
 
   return (
-    <div className="navbar">
-      <img src={logo} alt="Logo" className="nav-logo" />
-
-      <div className={`nav-menu ${isOpen ? 'open' : ''}`}>
-        <li><AnchorLink href="#home" onClick={closeMenu}>Home</AnchorLink></li>
-        <li><AnchorLink href="#about" onClick={closeMenu}>About Me</AnchorLink></li>
-        <li><AnchorLink href="#service" onClick={closeMenu}>Services</AnchorLink></li>
-        <li><AnchorLink href="#work" onClick={closeMenu}>Portfolio</AnchorLink></li>
-        <li><AnchorLink href="#contact" onClick={closeMenu}>Contact</AnchorLink></li>
-      </div>
-
-      <div className="nav-connect">
-        <AnchorLink href="#contact">Connect With Me</AnchorLink>
-      </div>
+    <div className='navbar'>
+      {/* Logo */}
+      <img src={logo} alt="Logo" />
 
       {/* Hamburger Icon */}
-      <div className="hamburger" onClick={toggleMenu}>
-        {isOpen ? <FaTimes /> : <FaBars />}
+      <div className={`hamburger ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      {/* Navigation Menu */}
+      <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
+        <li><AnchorLink href="#home" onClick={() => setMenuOpen(false)}>Home</AnchorLink></li>
+        <li><AnchorLink href="#about" onClick={() => setMenuOpen(false)}>About Me</AnchorLink></li>
+        <li><AnchorLink href="#education">Education</AnchorLink></li>
+        <li><AnchorLink href="#service" onClick={() => setMenuOpen(false)}>Services</AnchorLink></li>
+        <li><AnchorLink href="#work" onClick={() => setMenuOpen(false)}>Portfolio</AnchorLink></li>
+        <li><AnchorLink href="#contact" onClick={() => setMenuOpen(false)}>Contact</AnchorLink></li>
+      </ul>
+
+      {/* Connect Button (No Anchor Tag) */}
+      <div className="nav-connect">
+        Connect With Me
       </div>
     </div>
   );

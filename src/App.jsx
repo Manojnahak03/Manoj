@@ -6,6 +6,7 @@ import Service from './Components/Service/Service'
 import MyWork from './Components/MyWork/MyWork'
 import Contact from './Components/Contact/Contact'
 import Footer from './Components/Footer/Footer'
+import Education from './Components/Education/Education'
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <Navbar/>
       <Hero/>
       <About/>
+      <Education/>
       <Service/>
       <MyWork/>
       <Contact/>
