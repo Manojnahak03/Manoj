@@ -1,7 +1,7 @@
-import React from 'react'
-import './Footer.css'
-import footer_logo from '../../assets/footer_logo.svg'
-import user_icon from '../../assets/user_icon.svg'
+import React from 'react';
+import './Footer.css';
+import footer_logo from '../../assets/footer_logo.svg';
+import user_icon from '../../assets/user_icon.svg';
 import { FaInstagram, FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
@@ -10,12 +10,41 @@ const Footer = () => {
       <div className="footer-top">
         <div className="footer-top-left">
           <img src={footer_logo} alt="Logo" />
-          <p>I am a frontend developer from Mumbai, India with 2 years of experience in building clean and creative web applications.</p>
+          <p>
+            I am a frontend developer from Mumbai, India with 2 years of experience 
+            in building clean and creative web applications.
+          </p>
+
+          {/* Social Media Icons */}
           <div className="footer-social">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer"><FaInstagram /></a>
-            <a href="https://facebook.com" target="_blank" rel="noreferrer"><FaFacebook /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer"><FaLinkedin /></a>
-            <a href="https://github.com/manojnahak03" target="_blank" rel="noreferrer"><FaGithub /></a>
+            <a 
+              href="https://www.instagram.com/45manoj_?igsh=ZTd1eG90djF2N2ps" 
+              target="_blank" 
+              rel="noreferrer"
+            >
+              <FaInstagram />
+            </a>
+            <a 
+              href="https://www.facebook.com/share/1EmN9xcZTk/" 
+              target="_blank" 
+              rel="noreferrer"
+            >
+              <FaFacebook />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/manoj-nahak-50369538b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+              target="_blank" 
+              rel="noreferrer"
+            >
+              <FaLinkedin />
+            </a>
+            <a 
+              href="https://github.com/manojnahak03" 
+              target="_blank" 
+              rel="noreferrer"
+            >
+              <FaGithub />
+            </a>
           </div>
         </div>
 
@@ -39,7 +68,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
