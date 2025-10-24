@@ -34,7 +34,7 @@ const Navbar = () => {
 
       {/* Connect Button (No Anchor Tag) */}
       <div className="nav-connect">
-        Connect With Me
+        <AnchorLink href="#contact" onClick={() => setMenuOpen(false)}>Connect With Me !</AnchorLink>
       </div>
     </div>
   );
