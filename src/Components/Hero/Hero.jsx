@@ -1,18 +1,24 @@
-import React from 'react'
-import './Hero.css'
+import React from 'react';
+import './Hero.css';
 import Profile_img from '../../assets/Profile_img.jpg';
+import Resume from '../../assets/ManojResume.pdf'; 
 const Hero = () => {
   return (
     <div id='home' className='hero'>
-      <img src={Profile_img} alt="" />
-      <h1><span>I'm Manoj Nahak,</span>frontend developer based in India.</h1>
-      <p>I am a frontend developer from Mumbai, India with 2 Year experiene in microsoft,google,tesla.</p>
+      <img src={Profile_img} alt="Profile" />
+      <h1><span>I'm Manoj Nahak,</span> frontend developer based in India.</h1>
+      <p>I am a frontend developer from Mumbai, India with 2 years of experience in Microsoft, Google, and Tesla.</p>
+      
       <div className="hero-action">
         <div className="hero-connect">Connect with me</div>
-        <div className="hero-resume">My Resume</div>
+
+        {/* Resume Button */}
+        <a href={Resume} target="_blank" rel="noopener noreferrer" className="hero-resume">
+          My Resume
+        </a>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
