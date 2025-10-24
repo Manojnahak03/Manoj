@@ -16,7 +16,8 @@ const Hero = () => {
 
         {/* Resume Button */}
         <a
-          href="/ManojResume.pdf"
+          href="https://manojnahak.vercel.app/ManojResume.pdf"
+          download="ManojResume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="hero-resume"
