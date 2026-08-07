@@ -1,38 +1,101 @@
-import React from 'react';
-import './Education.css';
+import React from "react";
+import "./Education.css";
 
 const Education = () => {
+  const educationData = [
+    {
+      number: "01",
+      title: "Class 10th",
+      institution: "St Mary Primary & Secondary School",
+      result: "92.40%",
+      resultLabel: "Percentage",
+      extra: "3rd in School",
+      extraLabel: "Rank",
+    },
+    {
+      number: "02",
+      title: "Class 12th",
+      institution: "RR Educational Trust",
+      result: "88.67%",
+      resultLabel: "Percentage",
+      extra: "1st Rank",
+      extraLabel: "Jr. College",
+    },
+    {
+      number: "03",
+      title: "BSC-IT",
+      institution: "KET's V.G Vaze College (Autonomous)",
+      result: "8.83",
+      resultLabel: "CGPA",
+      extra: "2023 - 2026",
+      extraLabel: "Duration",
+    },
+  ];
+
   return (
-    <div id="education" className="education">
-      <h1 className="education-title">My Education</h1>
+    <section className="education" id="education">
 
-      <div className="education-cards">
-        {/* 10th */}
-        <div className="education-card">
-          <h2>Class 10th</h2>
-          <p><strong>School:</strong> St Mary Primary & Secondary School</p>
-          <p><strong>Percentage:</strong> 92.40%</p>
-          <p><strong>Rank:</strong> 3rd in School </p>
-        </div>
+      {/* Heading */}
+      <div className="education-heading">
+        <p>MY ACADEMIC JOURNEY</p>
 
-        {/* 12th */}
-        <div className="education-card">
-          <h2>Class 12th</h2>
-          <p><strong>College:</strong> RR Educational Trust</p>
-          <p><strong>Percentage:</strong> 88.67%</p>
-          <p><strong>Rank:</strong> 1st Rank in Jr.College</p>
-        </div>
+        <h1>
+          My <span>Education</span>
+        </h1>
 
-        {/* Degree */}
-        <div className="education-card">
-          <h2>BSc-IT</h2>
-          <p><strong>College:</strong> V.G VAZE College(Autonomous)</p>
-          <p><strong>CGPA:</strong> 8.5 +</p>
-          <p><strong>Year:</strong> 2023-2026</p>
-        </div>
+        <div className="education-heading-line"></div>
       </div>
-    </div>
+
+      {/* Cards */}
+      <div className="education-cards">
+
+        {educationData.map((education) => (
+          <div className="education-card" key={education.number}>
+
+            {/* Card Number */}
+            <div className="education-number">
+              {education.number}
+            </div>
+
+            {/* Icon */}
+            <div className="education-icon">
+              🎓
+            </div>
+
+            {/* Title */}
+            <h2>{education.title}</h2>
+
+            {/* Institution */}
+            <p className="education-institution">
+              {education.institution}
+            </p>
+
+            {/* Divider */}
+            <div className="education-divider"></div>
+
+            {/* Result */}
+            <div className="education-details">
+
+              <div className="education-detail">
+                <span>{education.resultLabel}</span>
+                <strong>{education.result}</strong>
+              </div>
+
+              <div className="education-detail">
+                <span>{education.extraLabel}</span>
+                <strong>{education.extra}</strong>
+              </div>
+
+            </div>
+
+          </div>
+        ))}
+
+      </div>
+
+    </section>
   );
-}
+};
 
 export default Education;
+

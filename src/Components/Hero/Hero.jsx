@@ -1,20 +1,54 @@
-import React from 'react';
-import './Hero.css';
-import Profile_img from '../../assets/Profile_img.jpg';
-
+import React from "react";
+import "./Hero.css";
+import Manojkumar from "../../assets/Manojkumar.jpeg";
 const Hero = () => {
   return (
-    <div id='home' className='hero'>
-      <img src={Profile_img} alt="Profile" />
-      <h1><span>I'm Manoj Nahak,</span> frontend developer based in India.</h1>
-      <p>
-        I am a frontend developer from Mumbai, India with 2 years of experience in Microsoft, Google, and Tesla.
+    <section className="hero" id="home">
+
+      {/* Background Grid */}
+      <div className="hero-grid"></div>
+
+      {/* Background Glow */}
+      <div className="hero-glow"></div>
+
+      {/* Profile Image */}
+      <div className="hero-image-wrapper">
+        <img
+          src={Manojkumar}
+          alt="Manoj Nahak"
+          className="hero-profile"
+        />
+      </div>
+
+      {/* Intro */}
+      <p className="hero-intro">
+        Hello, I'm <span>Manoj Nahak</span> 👋
       </p>
 
-      <div className="hero-action">
-        <div className="hero-connect">Connect with me</div>
+      {/* Heading */}
+      <h1 className="hero-title">
+        FullStack Developer
+        <span>Building Modern Web Experiences</span>
+      </h1>
 
-        {/* Resume Button */}
+      {/* Description */}
+      <p className="hero-description">
+        I am a frontend developer from Mumbai, India, passionate about
+        creating clean, responsive and user-friendly web applications
+        using modern technologies.
+      </p>
+
+      {/* Buttons */}
+      <div className="hero-action">
+
+        <a
+          href="#contact"
+          className="hero-connect"
+        >
+          Let's Connect
+          <span>→</span>
+        </a>
+
         <a
           href="https://manojnahak.vercel.app/ManojResume.pdf"
           download="ManojResume.pdf"
@@ -23,10 +57,20 @@ const Hero = () => {
           className="hero-resume"
         >
           My Resume
+          <span>↗</span>
         </a>
+
       </div>
-    </div>
+
+      {/* Scroll Indicator */}
+      <div className="hero-scroll">
+        <span></span>
+        <p>Scroll to explore</p>
+      </div>
+
+    </section>
   );
 };
 
 export default Hero;
+

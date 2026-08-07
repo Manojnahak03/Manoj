@@ -1,43 +1,93 @@
-import React, { useState } from 'react';
-import './Navbar.css';
-import logo from '../../assets/logo.jpg';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import React, { useState } from "react";
+import "./Navbar.css";
+import logo from "../../assets/logo.jpg";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen((prev) => !prev);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
 
   return (
-    <div className='navbar'>
+    <nav className={`navbar ${menuOpen ? "menu-open" : ""}`}>
+
       {/* Logo */}
-      <img src={logo} alt="Logo" />
+      <AnchorLink href="#home" onClick={closeMenu} className="navbar-logo">
+        <img src={logo} alt="Manoj Nahak Logo" />
+      </AnchorLink>
 
-      {/* Hamburger Icon */}
-      <div className={`hamburger ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      {/* Desktop / Mobile Navigation */}
+      <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
 
-      {/* Navigation Menu */}
-      <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
-        <li><AnchorLink href="#home" onClick={() => setMenuOpen(false)}>Home</AnchorLink></li>
-        <li><AnchorLink href="#about" onClick={() => setMenuOpen(false)}>About Me</AnchorLink></li>
-        <li><AnchorLink href="#education">Education</AnchorLink></li>
-        <li><AnchorLink href="#service" onClick={() => setMenuOpen(false)}>Services</AnchorLink></li>
-        <li><AnchorLink href="#work" onClick={() => setMenuOpen(false)}>Portfolio</AnchorLink></li>
-        <li><AnchorLink href="#contact" onClick={() => setMenuOpen(false)}>Contact</AnchorLink></li>
+        <li>
+          <AnchorLink href="#home" onClick={closeMenu}>
+            Home
+          </AnchorLink>
+        </li>
+
+        <li>
+          <AnchorLink href="#about" onClick={closeMenu}>
+            About Me
+          </AnchorLink>
+        </li>
+
+        <li>
+          <AnchorLink href="#education" onClick={closeMenu}>
+            Education
+          </AnchorLink>
+        </li>
+
+        <li>
+          <AnchorLink href="#service" onClick={closeMenu}>
+            Services
+          </AnchorLink>
+        </li>
+
+        <li>
+          <AnchorLink href="#work" onClick={closeMenu}>
+            Portfolio
+          </AnchorLink>
+        </li>
+
+        <li>
+          <AnchorLink href="#contact" onClick={closeMenu}>
+            Contact
+          </AnchorLink>
+        </li>
+
       </ul>
 
-      {/* Connect Button (No Anchor Tag) */}
-      <div className="nav-connect">
-        <AnchorLink href="#contact" onClick={() => setMenuOpen(false)}>Connect With Me !</AnchorLink>
-      </div>
-    </div>
+      {/* Connect Button */}
+      <AnchorLink
+        href="#contact"
+        onClick={closeMenu}
+        className="nav-connect"
+      >
+        <span>Let's Talk</span>
+        <span className="nav-arrow">↗</span>
+      </AnchorLink>
+
+      {/* Hamburger */}
+      <button
+        className={`hamburger ${menuOpen ? "active" : ""}`}
+        onClick={toggleMenu}
+        aria-label="Toggle navigation menu"
+        aria-expanded={menuOpen}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </nav>
   );
 };
 
 export default Navbar;
+

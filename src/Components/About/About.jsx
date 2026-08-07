@@ -1,78 +1,122 @@
-import React from 'react';
-import './About.css';
-import theme_pattern from '../../assets/theme_pattern.svg'
-import Profile_img from '../../assets/Profile_img.jpg'
+import React from "react";
+import "./About.css";
+import Manoj from "../../assets/Manoj_Image.jpeg";
 
 const About = () => {
+  const skills = [
+    { name: "HTML & CSS", level: "90%" },
+    { name: "JavaScript", level: "75%" },
+    { name: "React.js", level: "80%" },
+    { name: "Node.js", level: "70%" },
+    { name: "Express.js", level: "65%" },
+    { name: "MongoDB", level: "70%" },
+  ];
+
   return (
-    <div id='about' className="about">
-      <div className="about-title">
-        <h1>About Me</h1>
-        <img src={theme_pattern} alt="Theme Pattern" />
+    <section className="about" id="about">
+
+      {/* Section Heading */}
+      <div className="about-heading">
+        <p>GET TO KNOW ME</p>
+        <h1>
+          About <span>Me</span>
+        </h1>
+        <div className="about-heading-line"></div>
       </div>
 
+      {/* Main About Content */}
       <div className="about-section">
+
+        {/* LEFT - IMAGE */}
         <div className="about-left">
-          <img src={Profile_img} alt="Profile" />
+          <div className="about-image-card">
+
+            <div className="about-image-glow"></div>
+
+            <img
+              src={Manoj}
+              alt="Manoj Nahak"
+            />
+
+            <div className="about-image-badge">
+              <span>✦</span>
+              Frontend Developer
+            </div>
+
+          </div>
         </div>
 
+        {/* RIGHT - CONTENT */}
         <div className="about-right">
+
           <div className="about-para">
+
             <p>
-              I am an experienced Frontend Developer with over 2 years of experience working in different companies.
+              I am a passionate <strong>Frontend Developer</strong> from
+              Mumbai, India, focused on creating modern, responsive and
+              user-friendly web applications.
             </p>
+
             <p>
-              My passion for frontend development goes beyond coding — I enjoy building clean, user-friendly, and responsive designs.
+              I enjoy turning ideas into clean digital experiences using
+              technologies like React.js, JavaScript, HTML, CSS and
+              modern web development tools.
             </p>
+
           </div>
 
+          {/* Skills */}
           <div className="about-skills">
-            <div className="about-skill">
-              <p>HTML & CSS</p>
-              <hr style={{ width: '90%' }} />
-            </div>
-            <div className="about-skill">
-              <p>JavaScript</p>
-              <hr style={{ width: '75%' }} />
-            </div>
-            <div className="about-skill">
-              <p>React.js</p>
-              <hr style={{ width: '80%' }} />
-            </div>
-            <div className="about-skill">
-              <p>Node.js</p>
-              <hr style={{ width: '70%' }} />
-            </div>
-            <div className="about-skill">
-              <p>Express.js</p>
-              <hr style={{ width: '65%' }} />
-            </div>
-            <div className="about-skill">
-              <p>MongoDB</p>
-              <hr style={{ width: '70%' }} />
-            </div>
+
+            {skills.map((skill, index) => (
+              <div className="about-skill" key={index}>
+
+                <div className="skill-info">
+                  <p>{skill.name}</p>
+                  <span>{skill.level}</span>
+                </div>
+
+                <div className="skill-bar">
+                  <span
+                    style={{ width: skill.level }}
+                  ></span>
+                </div>
+
+              </div>
+            ))}
+
           </div>
+
         </div>
       </div>
 
+      {/* Achievements */}
       <div className="about-achievements">
+
         <div className="about-achievement">
-          <h1>2+</h1>
-          <p>YEARS OF EXPERIENCE</p>
+          <h2>2+</h2>
+          <p>YEARS EXPERIENCE</p>
         </div>
-        <hr />
+
+        <div className="achievement-divider"></div>
+
         <div className="about-achievement">
-          <h1>15+</h1>
+          <h2>15+</h2>
           <p>PROJECTS COMPLETED</p>
         </div>
-        <hr />
+
+        <div className="achievement-divider"></div>
+
         <div className="about-achievement">
-          <h1>10+</h1>
+          <h2>10+</h2>
           <p>HAPPY CLIENTS</p>
         </div>
+
       </div>
-    </div>
+
+    </section>
   );
 };
 
 export default About;
+

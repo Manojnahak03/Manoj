@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Contact.css";
-import theme_pattern from "../../assets/theme_pattern.svg";
+
 import mail_icon from "../../assets/mail_icon.svg";
 import location_icon from "../../assets/location_icon.svg";
 import call_icon from "../../assets/call_icon.svg";
@@ -10,76 +10,232 @@ const Contact = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+
     setResult("Sending...");
 
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "067c4fe3-2c6a-4de9-a096-b2d0b5efd442"); // your Web3Forms key
+    formData.append(
+      "access_key",
+      "067c4fe3-2c6a-4de9-a096-b2d0b5efd442"
+    );
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://api.web3forms.com/submit",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const data = await response.json();
 
       if (data.success) {
-        setResult("Form submitted successfully!");
+        setResult("Message sent successfully! 🚀");
         event.target.reset();
       } else {
-        setResult("Failed to submit form. Please try again.");
+        setResult("Failed to send message. Please try again.");
         console.error(data);
       }
     } catch (err) {
       console.error(err);
-      setResult("An error occurred. Try again later.");
+
+      setResult(
+        "Something went wrong. Please try again later."
+      );
     }
   };
 
   return (
-    <div id="contact" className="contact">
-      <div className="contact-title">
-        <h1>Get in touch</h1>
-        <img src={theme_pattern} alt="" />
+    <section className="contact" id="contact">
+
+      {/* Heading */}
+      <div className="contact-heading">
+
+        <p>GET IN TOUCH</p>
+
+        <h1>
+          Let's <span>Connect</span>
+        </h1>
+
+        <div className="contact-heading-line"></div>
+
+        <h3>
+          Have a project in mind or just want to say hello?
+          I'd love to hear from you.
+        </h3>
+
       </div>
 
+      {/* Contact Content */}
       <div className="contact-section">
+
+        {/* LEFT */}
         <div className="contact-left">
-          <h1>Let's talk</h1>
-          <p>
-            I am currently available to take on new projects. Feel free to send
-            me a message.
-          </p>
-          <div className="contact-details">
-            <div className="contact-detail">
-              <img src={mail_icon} alt="" /> <p>45manojnahak@gmail.com</p>
-            </div>
-            <div className="contact-detail">
-              <img src={call_icon} alt="" /> <p>+91-8591430709</p>
-            </div>
-            <div className="contact-detail">
-              <img src={location_icon} alt="" /> <p>Sadguru Nagar, Diva East</p>
-            </div>
+
+          <div className="contact-intro">
+
+            <span className="contact-small-title">
+              HAVE A PROJECT?
+            </span>
+
+            <h2>
+              Let's build something
+              <span> amazing.</span>
+            </h2>
+
+            <p>
+              I am currently available to take on new projects,
+              internships and development opportunities. Feel free
+              to reach out and let's discuss your idea.
+            </p>
+
           </div>
+
+          {/* Contact Details */}
+          <div className="contact-details">
+
+            <a
+              href="mailto:45manojnahak@gmail.com"
+              className="contact-detail"
+            >
+              <div className="contact-icon">
+                <img src={mail_icon} alt="Email" />
+              </div>
+
+              <div>
+                <span>Email</span>
+                <p>45manojnahak@gmail.com</p>
+              </div>
+            </a>
+
+            <a
+              href="tel:+918591430709"
+              className="contact-detail"
+            >
+              <div className="contact-icon">
+                <img src={call_icon} alt="Phone" />
+              </div>
+
+              <div>
+                <span>Phone</span>
+                <p>+91 85914 30709</p>
+              </div>
+            </a>
+
+            <div className="contact-detail">
+
+              <div className="contact-icon">
+                <img
+                  src={location_icon}
+                  alt="Location"
+                />
+              </div>
+
+              <div>
+                <span>Location</span>
+                <p>Thane, Maharashtra, India</p>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <form onSubmit={onSubmit} className="contact-right">
-          <label htmlFor="">Your Name</label>
-          <input type="text" name="name" placeholder="Enter Your Name" required />
+        {/* RIGHT FORM */}
+        <form
+          onSubmit={onSubmit}
+          className="contact-right"
+        >
 
-          <label htmlFor="">Your Email</label>
-          <input type="email" name="email" placeholder="Enter Your Email" required />
+          <div className="form-header">
+            <span>DROP ME A MESSAGE</span>
+            <h2>Start a conversation</h2>
+          </div>
 
-          <label htmlFor="">Your Message</label>
-          <textarea name="message" rows="8" placeholder="Enter Your Message" required></textarea>
+          {/* Name */}
+          <div className="form-group">
 
-          <button type="submit" className="contact-submit">Submit</button>
-          {result && <p className="form-status">{result}</p>}
+            <label htmlFor="name">
+              Your Name
+            </label>
+
+            <input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+
+          </div>
+
+          {/* Email */}
+          <div className="form-group">
+
+            <label htmlFor="email">
+              Your Email
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+
+          </div>
+
+          {/* Message */}
+          <div className="form-group">
+
+            <label htmlFor="message">
+              Your Message
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Tell me about your project..."
+              required
+            ></textarea>
+
+          </div>
+
+          {/* Submit */}
+          <button
+            type="submit"
+            className="contact-submit"
+          >
+            <span>Send Message</span>
+            <span className="submit-arrow">↗</span>
+          </button>
+
+          {/* Status */}
+          {result && (
+            <p
+              className={`form-status ${
+                result.includes("successfully")
+                  ? "success"
+                  : ""
+              }`}
+            >
+              {result}
+            </p>
+          )}
+
         </form>
+
       </div>
-    </div>
+
+    </section>
   );
 };
 
 export default Contact;
+
+
